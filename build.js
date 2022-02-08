@@ -1,9 +1,4 @@
-const { webkit } = require('playwright');
+const Handlebars = require("handlebars");
+const template = Handlebars.compile("Name: {{name}}");
+console.log(template({ name: "Nils" }));
 
-(async () => {
-    const browser = await webkit.launch();
-    const page = await browser.newPage();
-    await page.goto('http://whatsmyuseragent.org/');
-    await page.screenshot({ path: `example.png` });
-    await browser.close();
-})();
